@@ -9,26 +9,37 @@ export default function Experience() {
     <section id="experience" className="experience-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">Practical Learning and Credentials</span>
-          <h2 className="section-title">Experience and Certifications</h2>
+          <span className="section-eyebrow">[ SYSTEM CREDENTIALS // 06 ]</span>
+          <h2 className="section-title">Experience & Accreditations</h2>
           <p className="section-subtitle">
             Hands-on technical development through academic coursework, national certifications, and technical training.
           </p>
         </div>
 
-        {/* NPTEL Special Highlight Card */}
+        {/* NPTEL Special Highlight Card - Futuristic Accreditation Frame */}
         {nptelCert && (
-          <div className="experience-featured-cert">
-            <div className="cert-ribbon">National Accreditation</div>
+          <div className="experience-featured-cert hud-panel">
+            <div className="hud-corner-bracket top-left"></div>
+            <div className="hud-corner-bracket top-right"></div>
+            <div className="hud-corner-bracket bottom-left"></div>
+            <div className="hud-corner-bracket bottom-right"></div>
+
+            <div className="cert-ribbon-hud">[ NATIONAL ACCREDITATION // IIT KHARAGPUR ]</div>
+
             <div className="cert-featured-body">
               <div className="cert-featured-info">
-                <span className="cert-featured-tag">NPTEL Elite Certification • 76%</span>
+                <div className="cert-status-row">
+                  <span className="cert-featured-tag">NPTEL ELITE CERTIFICATION</span>
+                  <span className="cert-roll-tag">ROLL: {nptelCert.rollNo}</span>
+                </div>
+
                 <h3 className="cert-featured-title">{nptelCert.title}</h3>
                 <h4 className="cert-featured-issuer">
                   {nptelCert.issuer}
                   <span className="experience-separator">•</span>
-                  <span>Roll No: {nptelCert.rollNo}</span>
+                  <span>{nptelCert.period}</span>
                 </h4>
+                
                 <p className="cert-featured-desc">{nptelCert.description}</p>
                 
                 <div className="cert-featured-actions">
@@ -36,7 +47,7 @@ export default function Experience() {
                     href={nptelCert.pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary"
+                    className="btn btn-hud-primary"
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"></path>
@@ -45,7 +56,7 @@ export default function Experience() {
                     <span>View Official PDF</span>
                   </a>
 
-                  <Link to="/certificates" className="btn btn-secondary">
+                  <Link to="/certificates" className="btn btn-hud-secondary">
                     <span>Inspect Full Accreditation Page</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -56,30 +67,32 @@ export default function Experience() {
               </div>
 
               <div className="cert-featured-badge-box">
-                <div className="score-circle">
+                <div className="score-circle-hud">
+                  <div className="score-ring"></div>
                   <span className="score-val">76%</span>
-                  <span className="score-lbl">Elite Score</span>
+                  <span className="score-lbl">ELITE SCORE</span>
                 </div>
-                <span className="credits-lbl">4 Academic Credits</span>
+                <span className="credits-lbl-hud">4 ACADEMIC CREDITS</span>
               </div>
             </div>
           </div>
         )}
 
-        <div className="experience-list" style={{ marginTop: '2.5rem' }}>
+        {/* Experience List Cards */}
+        <div className="experience-list">
           {experienceData.map((item, index) => (
-            <div key={index} className="experience-card">
+            <div key={index} className="experience-card hud-panel">
+              <div className="hud-panel-header">
+                <span className="hud-terminal-tag">// EXP_LOG: {item.title.toUpperCase()}</span>
+                <span className="experience-period-hud">[ {item.period} ]</span>
+              </div>
+
               <div className="experience-header">
                 <div className="experience-titles">
                   <h3 className="experience-role">{item.role}</h3>
                   <h4 className="experience-org">
                     {item.organization}
-                    <span className="experience-separator">•</span>
-                    <span className="experience-badge-title">{item.title}</span>
                   </h4>
-                </div>
-                <div className="experience-period">
-                  <span>{item.period}</span>
                 </div>
               </div>
 
@@ -89,9 +102,7 @@ export default function Experience() {
                 <ul className="experience-bullets">
                   {item.points.map((point, pIndex) => (
                     <li key={pIndex}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: '4px' }}>
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                      </svg>
+                      <span className="bullet-indicator">◆</span>
                       <span>{point}</span>
                     </li>
                   ))}

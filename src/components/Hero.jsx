@@ -14,30 +14,41 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero-section">
+      {/* Background HUD Matrix Grid Ambient Glow */}
+      <div className="hero-hud-ambient-glow" aria-hidden="true"></div>
+
       <div className="container hero-container">
-        {/* Left Column: Text & CTAs */}
+        {/* Left Column: System Profile Dossier */}
         <div className="hero-content">
-          <div className="hero-status-badge">
-            <span className="status-dot"></span>
-            <span>Open to Internship & Engineering Roles</span>
+          <div className="hero-system-status">
+            <span className="system-indicator-dot"></span>
+            <span className="system-status-code">[ SYSTEM PROFILE // INITIALIZED ]</span>
+            <span className="system-status-divider">•</span>
+            <span className="system-status-text">Open to Internship & Engineering Roles</span>
           </div>
 
           <h1 className="hero-greeting">
-            Hello, I'm <span className="hero-name-highlight">{personalInfo.name}</span>
+            DEVELOPER: <span className="hero-name-highlight">{personalInfo.name}</span>
           </h1>
 
           <p className="hero-headline">
             {personalInfo.headline}
           </p>
 
-          <p className="hero-intro">
-            {personalInfo.shortIntro}
-          </p>
+          <div className="hero-intro-hud-panel">
+            <div className="hud-corner-bracket top-left"></div>
+            <div className="hud-corner-bracket top-right"></div>
+            <div className="hud-corner-bracket bottom-left"></div>
+            <div className="hud-corner-bracket bottom-right"></div>
+            <p className="hero-intro">
+              {personalInfo.shortIntro}
+            </p>
+          </div>
 
           <div className="hero-actions">
             <a 
               href="#projects" 
-              className="btn btn-primary"
+              className="btn btn-hud-primary"
               onClick={handleScrollToProjects}
             >
               <span>View My Projects</span>
@@ -49,7 +60,7 @@ export default function Hero() {
             
             <a 
               href={personalInfo.resumeUrl} 
-              className="btn btn-secondary"
+              className="btn btn-hud-secondary"
               download="S_Hazm_Marzooq_Resume.pdf"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -64,7 +75,7 @@ export default function Hero() {
               href={personalInfo.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary hero-linkedin-btn"
+              className="btn btn-hud-secondary hero-linkedin-btn"
               aria-label="Connect with Hazm Marzooq on LinkedIn"
               title="Connect on LinkedIn"
             >
@@ -75,38 +86,59 @@ export default function Hero() {
             </a>
           </div>
 
+          {/* Quick HUD Telemetry Readout */}
           <div className="hero-quick-meta">
             <div className="quick-meta-item">
-              <span className="meta-label">Email:</span>
+              <span className="meta-label">EMAIL_LINK:</span>
               <a href={`mailto:${personalInfo.email}`} className="meta-value">{personalInfo.email}</a>
             </div>
             <div className="quick-meta-item">
-              <span className="meta-label">Phone:</span>
+              <span className="meta-label">VOICE_COMM:</span>
               <a href={`tel:${personalInfo.phone}`} className="meta-value">+91 {personalInfo.phone}</a>
             </div>
             <div className="quick-meta-item">
-              <span className="meta-label">Location:</span>
+              <span className="meta-label">LOCATION_SECTOR:</span>
               <span className="meta-value">{personalInfo.location}</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Circular Profile Image */}
+        {/* Right Column: Futuristic Hexagonal / Circular Profile HUD Frame */}
         <div className="hero-image-wrapper">
-          <div className="hero-image-frame">
-            <div className="hero-glow-ring"></div>
-            {imageError ? (
-              <div className="profile-placeholder" aria-label="Hazm Marzooq profile">
-                <span className="placeholder-initials">HM</span>
-              </div>
-            ) : (
-              <img 
-                src={personalInfo.profileImage} 
-                alt={`${personalInfo.name} - Software Developer Profile`} 
-                className="hero-profile-img"
-                onError={() => setImageError(true)}
-              />
-            )}
+          <div className="hero-profile-hud-rig">
+            {/* Rotating Orbital Energy Rings */}
+            <div className="hud-orbital-ring ring-outer"></div>
+            <div className="hud-orbital-ring ring-dashed"></div>
+            <div className="hud-orbital-ring ring-inner"></div>
+
+            {/* Corner Bracket Reticles */}
+            <div className="hud-reticle reticle-tl"></div>
+            <div className="hud-reticle reticle-tr"></div>
+            <div className="hud-reticle reticle-bl"></div>
+            <div className="hud-reticle reticle-br"></div>
+
+            {/* Profile Frame */}
+            <div className="hero-image-frame">
+              {imageError ? (
+                <div className="profile-placeholder" aria-label="Hazm Marzooq profile">
+                  <span className="placeholder-initials">&lt;HM /&gt;</span>
+                  <span className="placeholder-sub">DEV_SYS</span>
+                </div>
+              ) : (
+                <img 
+                  src={personalInfo.profileImage} 
+                  alt={`${personalInfo.name} - Software Developer Profile`} 
+                  className="hero-profile-img"
+                  onError={() => setImageError(true)}
+                />
+              )}
+            </div>
+
+            {/* Bottom Status Chip */}
+            <div className="hud-avatar-tag">
+              <span className="avatar-tag-dot"></span>
+              <span>DEV_VERIFIED</span>
+            </div>
           </div>
         </div>
       </div>

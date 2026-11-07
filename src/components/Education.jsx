@@ -6,7 +6,7 @@ export default function Education() {
     <section id="education" className="education-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">Academic Background</span>
+          <span className="section-eyebrow">[ ACADEMIC RECORD // 04 ]</span>
           <h2 className="section-title">Education & Qualifications</h2>
           <p className="section-subtitle">
             Formal academic foundation in computer science and engineering.
@@ -15,7 +15,12 @@ export default function Education() {
 
         <div className="education-timeline">
           {educationData.map((item, index) => (
-            <div key={index} className="education-card">
+            <div key={index} className="education-card hud-panel">
+              <div className="hud-panel-header">
+                <span className="hud-terminal-tag">// ACADEMIC TIMELINE // B.E. CSE</span>
+                <span className="education-period-badge">[ {item.period} ]</span>
+              </div>
+
               <div className="education-card-top">
                 <div className="education-icon-box">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -24,7 +29,6 @@ export default function Education() {
                   </svg>
                 </div>
                 <div className="education-header-info">
-                  <span className="education-period-badge">{item.period}</span>
                   <h3 className="education-degree">{item.degree}</h3>
                   <h4 className="education-institution">{item.institution}</h4>
                 </div>
@@ -33,13 +37,13 @@ export default function Education() {
               <div className="education-card-body">
                 <div className="education-status-tag">
                   <span className="status-indicator-dot"></span>
-                  {item.status}
+                  <span className="status-text">{item.status}</span>
                 </div>
                 <p className="education-description">{item.description}</p>
               </div>
 
               <div className="education-relevant-courses">
-                <span className="course-tag-title">Key Coursework:</span>
+                <span className="course-tag-title">// CORE SUBJECT MATRIX:</span>
                 <div className="course-tags">
                   <span className="course-tag">Data Structures & Algorithms</span>
                   <span className="course-tag">Database Management Systems</span>
