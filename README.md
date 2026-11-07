@@ -118,19 +118,3 @@ You can easily update any information without touching complex code:
 | **Resume PDF** | Replace `public/resume.pdf` with your updated PDF |
 
 ---
-
-## 🌐 How to Deploy for Free
-
-### Option A: Vercel (Recommended)
-1. Push this repository to GitHub.
-2. Sign in to [vercel.com](https://vercel.com) using your GitHub account.
-3. Click **"Add New Project"** and import your portfolio repository.
-4. Framework Preset will automatically detect **Vite**.
-5. Click **"Deploy"**. Your live URL will be ready in under 1 minute!
-
-### Option B: Netlify
-1. Push this repository to GitHub.
-2. Sign in to [netlify.com](https://netlify.com).
-3. Click **"Add new site"** -> **"Import an existing project"** -> **GitHub**.
-4. Set Build command to: `npm run build` and Publish directory to: `dist`.
-5. Click **"Deploy site"**.
