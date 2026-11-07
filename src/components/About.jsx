@@ -6,7 +6,7 @@ export default function About() {
     <section id="about" className="about-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">[ SYSTEM DOSSIER // 02 ]</span>
+          <span className="section-eyebrow">About Me</span>
           <h2 className="section-title">Background & Career Objective</h2>
           <p className="section-subtitle">
             A glimpse into my academic journey, current technical focus, and professional aspirations.
@@ -17,8 +17,7 @@ export default function About() {
           {/* Main Bio Text - System Intelligence Panel */}
           <div className="about-bio-card hud-panel">
             <div className="hud-panel-header">
-              <span className="hud-terminal-tag">// SYSTEM LOG: CANDIDATE PROFILE</span>
-              <span className="hud-panel-code">AUTH_2027</span>
+              <span className="hud-terminal-tag">Candidate Profile</span>
             </div>
 
             <div className="about-paragraphs">
@@ -30,7 +29,7 @@ export default function About() {
             {/* Career Objective Directive Block */}
             <div className="objective-box hud-directive-box">
               <div className="objective-header-bar">
-                <span className="directive-tag">[ DIRECTIVE // OBJECTIVE ]</span>
+                <span className="directive-tag">Career Objective</span>
               </div>
               <div className="objective-content">
                 <blockquote className="objective-quote">
@@ -43,8 +42,7 @@ export default function About() {
           {/* Quick Info & Highlights Sidebar */}
           <div className="about-highlights-card hud-panel">
             <div className="hud-panel-header">
-              <span className="hud-terminal-tag">// SYSTEM TELEMETRY</span>
-              <span className="hud-panel-code">SPECS</span>
+              <span className="hud-terminal-tag">Quick Highlights</span>
             </div>
             
             <div className="highlights-list">
@@ -57,7 +55,7 @@ export default function About() {
             </div>
 
             <div className="about-focus-areas">
-              <h4 className="focus-areas-title">[ CORE FOCUS DOMAINS ]</h4>
+              <h4 className="focus-areas-title">Core Focus Domains</h4>
               <ul className="focus-list">
                 <li>
                   <span className="focus-bullet-hud">⬡</span>

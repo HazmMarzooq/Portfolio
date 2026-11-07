@@ -25,14 +25,14 @@ export default function ProjectsPage() {
               <line x1="19" y1="12" x2="5" y2="12"></line>
               <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
-            [ RETURN TO SYSTEM HOME ]
+            Back to Home
           </Link>
-          <span className="breadcrumb-separator-hud">//</span>
-          <span className="breadcrumb-current-hud">PROJECTS_DIRECTORY</span>
+          <span className="breadcrumb-separator-hud">/</span>
+          <span className="breadcrumb-current-hud">Projects</span>
         </div>
 
         <div className="section-header" style={{ marginTop: '1.5rem' }}>
-          <span className="section-eyebrow">[ SYSTEM ARCHIVE // PROJECTS ]</span>
+          <span className="section-eyebrow">Project Portfolio</span>
           <h1 className="section-title">Projects & Case Studies</h1>
           <p className="section-subtitle">
             Explore detailed architectures, exploratory analyses, and machine learning pipelines developed during my Computer Science studies.
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
               className={`filter-btn-hud ${filter === cat ? 'active' : ''}`}
               onClick={() => setFilter(cat)}
             >
-              [ {cat.toUpperCase()} ]
+              {cat}
             </button>
           ))}
         </div>
@@ -62,8 +62,8 @@ export default function ProjectsPage() {
               <div className="hud-corner-bracket bottom-right"></div>
 
               <div className="project-card-header">
-                <span className="project-tag-hud">// {project.tag.toUpperCase()}</span>
-                <div className="project-number-hud">PROJECT_0{project.id}</div>
+                <span className="project-tag-hud">{project.tag}</span>
+                <div className="project-number-hud">Project 0{project.id}</div>
               </div>
 
               <div className="project-card-body">

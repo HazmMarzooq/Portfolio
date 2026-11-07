@@ -9,7 +9,7 @@ export default function Experience() {
     <section id="experience" className="experience-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">[ SYSTEM CREDENTIALS // 06 ]</span>
+          <span className="section-eyebrow">Experience & Accreditations</span>
           <h2 className="section-title">Experience & Accreditations</h2>
           <p className="section-subtitle">
             Hands-on technical development through academic coursework, national certifications, and technical training.
@@ -24,13 +24,13 @@ export default function Experience() {
             <div className="hud-corner-bracket bottom-left"></div>
             <div className="hud-corner-bracket bottom-right"></div>
 
-            <div className="cert-ribbon-hud">[ NATIONAL ACCREDITATION // IIT KHARAGPUR ]</div>
+            <div className="cert-ribbon-hud">National Accreditation • IIT Kharagpur</div>
 
             <div className="cert-featured-body">
               <div className="cert-featured-info">
                 <div className="cert-status-row">
-                  <span className="cert-featured-tag">NPTEL ELITE CERTIFICATION</span>
-                  <span className="cert-roll-tag">ROLL: {nptelCert.rollNo}</span>
+                  <span className="cert-featured-tag">NPTEL Elite Certification</span>
+                  <span className="cert-roll-tag">Roll No: {nptelCert.rollNo}</span>
                 </div>
 
                 <h3 className="cert-featured-title">{nptelCert.title}</h3>
@@ -72,7 +72,7 @@ export default function Experience() {
                   <span className="score-val">76%</span>
                   <span className="score-lbl">ELITE SCORE</span>
                 </div>
-                <span className="credits-lbl-hud">4 ACADEMIC CREDITS</span>
+                <span className="credits-lbl-hud">4 Academic Credits</span>
               </div>
             </div>
           </div>
@@ -83,8 +83,8 @@ export default function Experience() {
           {experienceData.map((item, index) => (
             <div key={index} className="experience-card hud-panel">
               <div className="hud-panel-header">
-                <span className="hud-terminal-tag">// EXP_LOG: {item.title.toUpperCase()}</span>
-                <span className="experience-period-hud">[ {item.period} ]</span>
+                <span className="hud-terminal-tag">{item.title}</span>
+                <span className="experience-period-hud">{item.period}</span>
               </div>
 
               <div className="experience-header">

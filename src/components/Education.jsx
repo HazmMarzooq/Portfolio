@@ -6,7 +6,7 @@ export default function Education() {
     <section id="education" className="education-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">[ ACADEMIC RECORD // 04 ]</span>
+          <span className="section-eyebrow">Academic Background</span>
           <h2 className="section-title">Education & Qualifications</h2>
           <p className="section-subtitle">
             Formal academic foundation in computer science and engineering.
@@ -17,8 +17,8 @@ export default function Education() {
           {educationData.map((item, index) => (
             <div key={index} className="education-card hud-panel">
               <div className="hud-panel-header">
-                <span className="hud-terminal-tag">// ACADEMIC TIMELINE // B.E. CSE</span>
-                <span className="education-period-badge">[ {item.period} ]</span>
+                <span className="hud-terminal-tag">Undergraduate Program • B.E. CSE</span>
+                <span className="education-period-badge">{item.period}</span>
               </div>
 
               <div className="education-card-top">
@@ -43,7 +43,7 @@ export default function Education() {
               </div>
 
               <div className="education-relevant-courses">
-                <span className="course-tag-title">// CORE SUBJECT MATRIX:</span>
+                <span className="course-tag-title">Core Subjects & Fundamentals:</span>
                 <div className="course-tags">
                   <span className="course-tag">Data Structures & Algorithms</span>
                   <span className="course-tag">Database Management Systems</span>

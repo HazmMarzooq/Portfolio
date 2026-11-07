@@ -28,15 +28,13 @@ export default function Navbar() {
           {/* Futuristic System Identity Brand */}
           <Link to="/#home" className="navbar-brand">
             <div className="brand-hud-box">
-              <span className="brand-logo-bracket">[</span>
-              <span className="brand-logo-text">DEV_SYS</span>
-              <span className="brand-logo-bracket">]</span>
+              <span className="brand-logo-text">HM</span>
             </div>
             <div className="brand-text-group">
               <span className="brand-name">{personalInfo.name}</span>
               <span className="brand-status-indicator">
                 <span className="status-blink-dot"></span>
-                <span className="brand-role-code">SYSTEM_ONLINE</span>
+                <span className="brand-role-code">Available for Roles</span>
               </span>
             </div>
           </Link>
@@ -44,9 +42,7 @@ export default function Navbar() {
           {/* Right Header Controls: Circular SYSTEM Dial Button */}
           <div className="navbar-actions">
             <Link to="/certificates" className="nav-hud-sublink">
-              <span className="sublink-bracket">[</span>
-              <span>NPTEL CERT</span>
-              <span className="sublink-bracket">]</span>
+              <span>NPTEL Certificate</span>
             </Link>
 
             {/* The One Circular SYSTEM Button */}

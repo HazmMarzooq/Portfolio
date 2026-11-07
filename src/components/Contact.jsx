@@ -104,10 +104,10 @@ export default function Contact() {
     <section id="contact" className="contact-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">[ COMM TERMINAL // 08 ]</span>
-          <h2 className="section-title">Initiate Transmission</h2>
+          <span className="section-eyebrow">Get in Touch</span>
+          <h2 className="section-title">Let's Connect & Collaborate</h2>
           <p className="section-subtitle">
-            Whether you have an internship opportunity, a project idea, or just want to connect, feel free to reach out directly through this secure terminal.
+            Whether you have an internship opportunity, a project idea, or just want to connect, feel free to reach out directly through this form.
           </p>
         </div>
 
@@ -116,8 +116,7 @@ export default function Contact() {
           <div className="contact-info-column">
             <div className="hud-panel contact-telemetry-panel">
               <div className="hud-panel-header">
-                <span className="hud-terminal-tag">// COMM CHANNELS</span>
-                <span className="hud-panel-code">SECURE</span>
+                <span className="hud-terminal-tag">Contact Information</span>
               </div>
 
               <div className="contact-cards-list">
@@ -130,7 +129,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div className="contact-method-info">
-                    <span className="contact-method-label-hud">[ COMM: DIRECT_EMAIL ]</span>
+                    <span className="contact-method-label-hud">Direct Email</span>
                     <span className="contact-method-value">{personalInfo.email}</span>
                   </div>
                 </a>
@@ -143,7 +142,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div className="contact-method-info">
-                    <span className="contact-method-label-hud">[ COMM: DIRECT_TEL ]</span>
+                    <span className="contact-method-label-hud">Phone</span>
                     <span className="contact-method-value">+91 {personalInfo.phone}</span>
                   </div>
                 </a>
@@ -157,7 +156,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div className="contact-method-info">
-                    <span className="contact-method-label-hud">[ SECTOR: BASE_LOCATION ]</span>
+                    <span className="contact-method-label-hud">Location</span>
                     <span className="contact-method-value">{personalInfo.location}</span>
                   </div>
                 </div>
@@ -165,7 +164,7 @@ export default function Contact() {
 
               {/* Social Profiles Box */}
               <div className="contact-social-box-hud">
-                <span className="social-box-title-hud">// VERIFIED NETWORK NODES:</span>
+                <span className="social-box-title-hud">Connect on Social Platforms:</span>
                 <div className="social-links-list">
                   <a 
                     href={personalInfo.social.linkedin} 
@@ -177,7 +176,7 @@ export default function Contact() {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0-.02-3.28 1.64 1.64 0 0 0 .02 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z"></path>
                     </svg>
-                    <span>LinkedIn Node</span>
+                    <span>LinkedIn</span>
                   </a>
 
                   <a 
@@ -190,7 +189,7 @@ export default function Contact() {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
-                    <span>GitHub Node</span>
+                    <span>GitHub</span>
                   </a>
                 </div>
               </div>
@@ -206,8 +205,7 @@ export default function Contact() {
               <div className="hud-corner-bracket bottom-right"></div>
 
               <div className="hud-panel-header">
-                <span className="hud-terminal-tag">// TRANSMISSION CONSOLE</span>
-                <span className="hud-panel-code">PORT_587</span>
+                <span className="hud-terminal-tag">Send a Message</span>
               </div>
 
               {submitted && (
@@ -216,13 +214,13 @@ export default function Contact() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                   </svg>
-                  <span>[ TRANSMISSION LOGGED ]: Message received. A prompt response will be delivered.</span>
+                  <span>Message sent successfully! A prompt response will be delivered.</span>
                 </div>
               )}
 
               {rateLimitError && (
                 <div className="form-alert-error-hud" role="alert">
-                  <span>[ RATE LIMIT ENGAGED ]: Please wait 20s before dispatching subsequent messages.</span>
+                  <span>Please wait 20 seconds before sending another message.</span>
                 </div>
               )}
 

@@ -112,14 +112,13 @@ export default function RadialMenu({ isOpen, onClose }) {
         <button
           className="radial-center-core"
           onClick={onClose}
-          aria-label="Close System Radial Menu"
-          title="Close System Menu"
+          aria-label="Close Radial Menu"
+          title="Close Menu"
         >
           <div className="core-inner-glow"></div>
           <div className="core-content">
-            <span className="core-tag">SYSTEM</span>
-            <span className="core-status">ONLINE</span>
-            <span className="core-close-hint">[ CLOSE ]</span>
+            <span className="core-tag">NAV</span>
+            <span className="core-close-hint">CLOSE</span>
           </div>
         </button>
 
@@ -148,7 +147,7 @@ export default function RadialMenu({ isOpen, onClose }) {
       </div>
 
       <div className="radial-footer-hint">
-        <span className="hint-bracket">[</span> CLICK ANY SECTOR TO ENGAGE • ESC TO EXIT <span className="hint-bracket">]</span>
+        Click any section to navigate • ESC to close
       </div>
     </div>
   );

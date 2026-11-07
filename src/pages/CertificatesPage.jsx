@@ -20,14 +20,14 @@ export default function CertificatesPage() {
               <line x1="19" y1="12" x2="5" y2="12"></line>
               <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
-            [ RETURN TO SYSTEM HOME ]
+            Back to Home
           </Link>
-          <span className="breadcrumb-separator-hud">//</span>
-          <span className="breadcrumb-current-hud">VERIFIED_ACCREDITATIONS</span>
+          <span className="breadcrumb-separator-hud">/</span>
+          <span className="breadcrumb-current-hud">Certifications</span>
         </div>
 
         <div className="section-header" style={{ marginTop: '1.5rem' }}>
-          <span className="section-eyebrow">[ ACADEMIC CREDENTIALS // CERT_ARCHIVE ]</span>
+          <span className="section-eyebrow">Academic Credentials</span>
           <h1 className="section-title">Certifications & Accreditations</h1>
           <p className="section-subtitle">
             Formal national qualifications and certified competencies in Software Engineering, Python, Cybersecurity, and Java.
@@ -44,7 +44,7 @@ export default function CertificatesPage() {
 
             <div className="nptel-featured-badge-hud">
               <span className="badge-pulse-dot"></span>
-              <span>[ NATIONAL ACCREDITATION: ELITE TIER ]</span>
+              <span>National Accreditation • Elite Tier</span>
             </div>
 
             <div className="nptel-grid">
@@ -71,7 +71,7 @@ export default function CertificatesPage() {
                     </a>
                   </div>
                 </div>
-                <span className="cert-subtext-hud">// CLICK PREVIEW TO INSPECT OFFICIAL DOCUMENT</span>
+                <span className="cert-subtext-hud">Click preview to inspect official document</span>
               </div>
 
               {/* Right Column: Verified Details & Credentials */}
@@ -86,19 +86,19 @@ export default function CertificatesPage() {
 
                 <div className="nptel-meta-table-hud">
                   <div className="nptel-meta-row-hud">
-                    <span className="nptel-meta-k">CANDIDATE:</span>
+                    <span className="nptel-meta-k">Candidate:</span>
                     <span className="nptel-meta-v">{personalInfo.name}</span>
                   </div>
                   <div className="nptel-meta-row-hud">
-                    <span className="nptel-meta-k">ROLL_NUMBER:</span>
+                    <span className="nptel-meta-k">Roll Number:</span>
                     <span className="nptel-meta-v nptel-mono">{nptelCert.rollNo}</span>
                   </div>
                   <div className="nptel-meta-row-hud">
-                    <span className="nptel-meta-k">DURATION:</span>
+                    <span className="nptel-meta-k">Duration:</span>
                     <span className="nptel-meta-v">{nptelCert.period}</span>
                   </div>
                   <div className="nptel-meta-row-hud">
-                    <span className="nptel-meta-k">ACADEMIC_CREDITS:</span>
+                    <span className="nptel-meta-k">Academic Credits:</span>
                     <span className="nptel-meta-v">{nptelCert.credits}</span>
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export default function CertificatesPage() {
                 <p className="nptel-description">{nptelCert.description}</p>
 
                 <div className="nptel-skills-covered">
-                  <h4 className="skills-covered-title-hud">// KEY COMPETENCIES VERIFIED:</h4>
+                  <h4 className="skills-covered-title-hud">Key Competencies Verified:</h4>
                   <div className="skills-covered-tags">
                     {nptelCert.skillsLearned.map((skill) => (
                       <span key={skill} className="skill-covered-tag-hud">
@@ -159,7 +159,7 @@ export default function CertificatesPage() {
             {otherCerts.map((cert) => (
               <div key={cert.id} className="additional-cert-card hud-panel">
                 <div className="cert-card-header">
-                  <span className="cert-period-badge">[ {cert.period} ]</span>
+                  <span className="cert-period-badge">{cert.period}</span>
                   <span className="cert-status-pill-hud">{cert.score}</span>
                 </div>
 

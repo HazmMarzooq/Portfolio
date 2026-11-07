@@ -22,13 +22,13 @@ export default function Hero() {
         <div className="hero-content">
           <div className="hero-system-status">
             <span className="system-indicator-dot"></span>
-            <span className="system-status-code">[ SYSTEM PROFILE // INITIALIZED ]</span>
+            <span className="system-status-code">Software Developer Portfolio</span>
             <span className="system-status-divider">•</span>
             <span className="system-status-text">Open to Internship & Engineering Roles</span>
           </div>
 
           <h1 className="hero-greeting">
-            DEVELOPER: <span className="hero-name-highlight">{personalInfo.name}</span>
+            Developer: <span className="hero-name-highlight">{personalInfo.name}</span>
           </h1>
 
           <p className="hero-headline">
@@ -89,15 +89,15 @@ export default function Hero() {
           {/* Quick HUD Telemetry Readout */}
           <div className="hero-quick-meta">
             <div className="quick-meta-item">
-              <span className="meta-label">EMAIL_LINK:</span>
+              <span className="meta-label">Email:</span>
               <a href={`mailto:${personalInfo.email}`} className="meta-value">{personalInfo.email}</a>
             </div>
             <div className="quick-meta-item">
-              <span className="meta-label">VOICE_COMM:</span>
+              <span className="meta-label">Phone:</span>
               <a href={`tel:${personalInfo.phone}`} className="meta-value">+91 {personalInfo.phone}</a>
             </div>
             <div className="quick-meta-item">
-              <span className="meta-label">LOCATION_SECTOR:</span>
+              <span className="meta-label">Location:</span>
               <span className="meta-value">{personalInfo.location}</span>
             </div>
           </div>

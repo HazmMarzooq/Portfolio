@@ -18,9 +18,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-brand-title">
-              <span className="footer-brand-bracket">[</span>
               <span className="footer-brand-name">{personalInfo.name}</span>
-              <span className="footer-brand-bracket">]</span>
             </div>
             <p className="footer-tagline">
               Computer Science and Engineering Student, Software Developer • Data Science • Web Development • Cybersecurity
@@ -56,7 +54,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {currentYear} {personalInfo.name} // DEVELOPER SYSTEM v2.0 • BUILT WITH REACT & VITE
+            © {currentYear} {personalInfo.name} • Built with React & Vite
           </p>
           <div className="footer-social-icons">
             <a 

@@ -7,7 +7,7 @@ export default function Projects() {
     <section id="projects" className="projects-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">[ SYSTEM MISSIONS // 05 ]</span>
+          <span className="section-eyebrow">Projects</span>
           <h2 className="section-title">Featured Engineering Projects</h2>
           <p className="section-subtitle">
             Hands-on projects covering Machine Learning, Data Analytics, and Web Application development. Click any project to inspect full case studies and technical explanations.
@@ -25,8 +25,8 @@ export default function Projects() {
 
               {/* Project Top Bar / System Category Tag */}
               <div className="project-card-header">
-                <span className="project-tag-hud">// {project.tag.toUpperCase()}</span>
-                <div className="project-number-hud">PROJECT_0{project.id}</div>
+                <span className="project-tag-hud">{project.tag}</span>
+                <div className="project-number-hud">Project 0{project.id}</div>
               </div>
 
               {/* Project Content */}

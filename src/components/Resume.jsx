@@ -7,7 +7,7 @@ export default function Resume() {
     <section id="resume" className="resume-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">[ SYSTEM ITEM // 07 ]</span>
+          <span className="section-eyebrow">Curriculum Vitae</span>
           <h2 className="section-title">Resume & Curriculum Vitae</h2>
           <p className="section-subtitle">
             Get a comprehensive overview of my academic records, technical proficiencies, certified coursework, and project milestones.
@@ -28,10 +28,10 @@ export default function Resume() {
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
                 </svg>
-                ITEM: PDF_DOCUMENT
+                PDF Document
               </span>
-              <span className="resume-pill-hud">CSE_DISCIPLINE</span>
-              <span className="resume-pill-hud">RECRUITER_READY</span>
+              <span className="resume-pill-hud">Computer Science & Engineering</span>
+              <span className="resume-pill-hud">Verified Credentials</span>
             </div>
 
             <h3 className="resume-headline">

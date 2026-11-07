@@ -81,7 +81,7 @@ export default function ProjectDetailPage() {
     return (
       <div className="multipage-wrapper">
         <div className="container" style={{ textAlign: 'center', padding: '6rem 0' }}>
-          <h2>[ RECORD_NOT_FOUND ]</h2>
+          <h2>Project Record Not Found</h2>
           <p style={{ margin: '1rem 0 2rem 0', color: 'var(--text-secondary)' }}>
             The requested project mission log does not exist on this system.
           </p>
@@ -98,11 +98,11 @@ export default function ProjectDetailPage() {
       <div className="container">
         {/* HUD Breadcrumb */}
         <div className="page-breadcrumb-hud">
-          <Link to="/" className="breadcrumb-link-hud">HOME</Link>
-          <span className="breadcrumb-separator-hud">//</span>
-          <Link to="/projects" className="breadcrumb-link-hud">PROJECTS</Link>
-          <span className="breadcrumb-separator-hud">//</span>
-          <span className="breadcrumb-current-hud">{project.title.toUpperCase()}</span>
+          <Link to="/" className="breadcrumb-link-hud">Home</Link>
+          <span className="breadcrumb-separator-hud">/</span>
+          <Link to="/projects" className="breadcrumb-link-hud">Projects</Link>
+          <span className="breadcrumb-separator-hud">/</span>
+          <span className="breadcrumb-current-hud">{project.title}</span>
         </div>
 
         {/* Project Header */}
@@ -112,7 +112,7 @@ export default function ProjectDetailPage() {
           <div className="hud-corner-bracket bottom-left"></div>
           <div className="hud-corner-bracket bottom-right"></div>
 
-          <span className="section-eyebrow">// {project.tag.toUpperCase()}</span>
+          <span className="section-eyebrow">{project.tag}</span>
           <h1 className="project-detail-title">{project.title}</h1>
           <p className="project-detail-summary">{project.summary}</p>
 
@@ -153,7 +153,7 @@ export default function ProjectDetailPage() {
 
         {/* Problem Statement Card */}
         <div className="case-study-section">
-          <h2 className="case-study-heading">// 01. PROBLEM STATEMENT & MOTIVATION</h2>
+          <h2 className="case-study-heading">01. Problem Statement & Motivation</h2>
           <div className="case-study-card hud-panel">
             <p className="case-study-text">
               {project.fullExplanation.problem}
@@ -163,7 +163,7 @@ export default function ProjectDetailPage() {
 
         {/* Methodology Pipeline */}
         <div className="case-study-section">
-          <h2 className="case-study-heading">// 02. METHODOLOGY & PIPELINE</h2>
+          <h2 className="case-study-heading">02. Methodology & Implementation</h2>
           <div className="pipeline-steps-grid">
             {project.fullExplanation.methodology.map((step, idx) => {
               const [title, desc] = step.split(': ');
@@ -180,12 +180,12 @@ export default function ProjectDetailPage() {
 
         {/* Interactive Simulation / Live Demonstration Box */}
         <div className="case-study-section">
-          <h2 className="case-study-heading">// 03. INTERACTIVE ANALYSIS CONSOLE</h2>
+          <h2 className="case-study-heading">03. Interactive Project Demonstration</h2>
           <div className="interactive-demo-card hud-panel">
             {project.id === 1 && (
               <div className="demo-juice-container">
                 <div className="demo-controls">
-                  <span className="demo-label-hud">SELECT PRODUCT VARIETY:</span>
+                  <span className="demo-label-hud">Select Product Variety:</span>
                   <div className="demo-buttons">
                     {['Orange', 'Apple', 'Mango', 'Berry Mix'].map((flavor) => (
                       <button
@@ -193,7 +193,7 @@ export default function ProjectDetailPage() {
                         className={`filter-btn-hud ${juiceFilter === flavor ? 'active' : ''}`}
                         onClick={() => setJuiceFilter(flavor)}
                       >
-                        [ {flavor} ]
+                        {flavor}
                       </button>
                     ))}
                   </div>
@@ -204,19 +204,19 @@ export default function ProjectDetailPage() {
                     <span className="demo-stat-metric-hud">
                       {juiceFilter === 'Orange' ? '$3.40' : juiceFilter === 'Apple' ? '$2.95' : juiceFilter === 'Mango' ? '$4.10' : '$4.50'}
                     </span>
-                    <span className="demo-stat-label-hud">OPTIMAL PRICE POINT</span>
+                    <span className="demo-stat-label-hud">Optimal Price Point</span>
                   </div>
                   <div className="demo-stat-box-hud">
                     <span className="demo-stat-metric-hud">
                       {juiceFilter === 'Orange' ? '88.4%' : juiceFilter === 'Apple' ? '92.1%' : juiceFilter === 'Mango' ? '84.6%' : '81.9%'}
                     </span>
-                    <span className="demo-stat-label-hud">MODEL CONFIDENCE</span>
+                    <span className="demo-stat-label-hud">Model Confidence</span>
                   </div>
                   <div className="demo-stat-box-hud">
                     <span className="demo-stat-metric-hud">
                       {juiceFilter === 'Orange' ? 'Summer Peak' : juiceFilter === 'Apple' ? 'Year-Round' : juiceFilter === 'Mango' ? 'Spring/Summer' : 'Winter'}
                     </span>
-                    <span className="demo-stat-label-hud">OBSERVED DEMAND</span>
+                    <span className="demo-stat-label-hud">Observed Demand</span>
                   </div>
                 </div>
               </div>
@@ -225,7 +225,7 @@ export default function ProjectDetailPage() {
             {project.id === 2 && (
               <div className="demo-cybercrime-container">
                 <div className="demo-controls">
-                  <span className="demo-label-hud">SELECT SURVEILLANCE ATM CORRIDOR:</span>
+                  <span className="demo-label-hud">Select Surveillance ATM Corridor:</span>
                   <div className="demo-buttons">
                     {atmCorridors.map((atm) => (
                       <button
@@ -233,7 +233,7 @@ export default function ProjectDetailPage() {
                         className={`filter-btn-hud ${selectedAtmCode === atm.code ? 'active' : ''}`}
                         onClick={() => setSelectedAtmCode(atm.code)}
                       >
-                        [ {atm.code}: {atm.name} ]
+                        {atm.code}: {atm.name}
                       </button>
                     ))}
                   </div>
@@ -244,26 +244,26 @@ export default function ProjectDetailPage() {
                     <span className="demo-stat-metric-hud" style={{ color: currentAtm.riskScore > 70 ? 'var(--sys-cyan-bright)' : 'inherit' }}>
                       {currentAtm.riskScore}%
                     </span>
-                    <span className="demo-stat-label-hud">PREDICTED RISK INDEX</span>
+                    <span className="demo-stat-label-hud">Predicted Risk Index</span>
                   </div>
                   <div className="demo-stat-box-hud">
                     <span className="demo-stat-metric-hud">
                       {currentAtm.window}
                     </span>
-                    <span className="demo-stat-label-hud">WITHDRAWAL WINDOW</span>
+                    <span className="demo-stat-label-hud">Withdrawal Window</span>
                   </div>
                   <div className="demo-stat-box-hud">
                     <span className="demo-stat-metric-hud" style={{ fontSize: '1.1rem' }}>
                       {currentAtm.status}
                     </span>
-                    <span className="demo-stat-label-hud">ADVISORY STATUS</span>
+                    <span className="demo-stat-label-hud">Advisory Status</span>
                   </div>
                 </div>
 
                 <div className="hud-panel" style={{ marginTop: '1.25rem', padding: '1rem', borderLeft: '3px solid var(--sys-cyan-bright)', background: 'rgba(0, 229, 255, 0.03)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.82rem' }}>
-                    <span>// MULE LAYERING TELEMETRY: <strong style={{ color: 'var(--sys-cyan-bright)' }}>{currentAtm.muleVelocity}</strong></span>
-                    <span style={{ color: 'var(--sys-cyan-glow)' }}>AI ENGINE: GEMINI MULTIVARIATE RISK MATRIX</span>
+                    <span>Mule Account Layering: <strong style={{ color: 'var(--sys-cyan-bright)' }}>{currentAtm.muleVelocity}</strong></span>
+                    <span style={{ color: 'var(--sys-cyan-glow)' }}>AI Risk Engine: Gemini Multivariate Analysis</span>
                   </div>
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default function ProjectDetailPage() {
             {project.id === 3 && (
               <div className="demo-bhuchain-container">
                 <div className="demo-controls">
-                  <span className="demo-label-hud">SELECT VERIFIED LAND PARCEL (ULPIN):</span>
+                  <span className="demo-label-hud">Select Verified Land Parcel (ULPIN):</span>
                   <div className="demo-buttons">
                     {sampleParcels.map((parcel) => (
                       <button
@@ -280,7 +280,7 @@ export default function ProjectDetailPage() {
                         className={`filter-btn-hud ${selectedUlpin === parcel.ulpin ? 'active' : ''}`}
                         onClick={() => setSelectedUlpin(parcel.ulpin)}
                       >
-                        [ {parcel.ulpin} ]
+                        {parcel.ulpin}
                       </button>
                     ))}
                   </div>
@@ -291,27 +291,27 @@ export default function ProjectDetailPage() {
                     <span className="demo-stat-metric-hud" style={{ fontSize: '1rem', color: 'var(--sys-cyan-bright)' }}>
                       {currentParcel.status}
                     </span>
-                    <span className="demo-stat-label-hud">LEDGER STATE</span>
+                    <span className="demo-stat-label-hud">Ledger State</span>
                   </div>
                   <div className="demo-stat-box-hud">
                     <span className="demo-stat-metric-hud" style={{ fontSize: '0.95rem' }}>
                       {currentParcel.owner}
                     </span>
-                    <span className="demo-stat-label-hud">APPROVED OWNER</span>
+                    <span className="demo-stat-label-hud">Approved Owner</span>
                   </div>
                   <div className="demo-stat-box-hud">
                     <span className="demo-stat-metric-hud" style={{ fontSize: '0.92rem' }}>
                       {currentParcel.encumbrance}
                     </span>
-                    <span className="demo-stat-label-hud">ENCUMBRANCE AUDIT</span>
+                    <span className="demo-stat-label-hud">Encumbrance Audit</span>
                   </div>
                 </div>
 
                 <div className="hud-panel" style={{ marginTop: '1.25rem', padding: '1rem', borderLeft: '3px solid var(--sys-cyan-bright)', background: 'rgba(0, 229, 255, 0.03)' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>
-                    <div>// CURRENT BLOCK HASH (SHA-256): <strong style={{ color: 'var(--sys-cyan-bright)', wordBreak: 'break-all' }}>{currentParcel.blockHash}</strong></div>
-                    <div>// PREVIOUS EVENT HASH: <span style={{ color: 'var(--text-muted)', wordBreak: 'break-all' }}>{currentParcel.prevHash}</span></div>
-                    <div style={{ color: 'var(--sys-cyan-glow)' }}>VERIFICATION PROTOCOL: APPEND-ONLY MERKLE TREE / QR INTEGRITY VERIFIED</div>
+                    <div>Current Block Hash (SHA-256): <strong style={{ color: 'var(--sys-cyan-bright)', wordBreak: 'break-all' }}>{currentParcel.blockHash}</strong></div>
+                    <div>Previous Event Hash: <span style={{ color: 'var(--text-muted)', wordBreak: 'break-all' }}>{currentParcel.prevHash}</span></div>
+                    <div style={{ color: 'var(--sys-cyan-glow)' }}>Verification Protocol: Append-Only Merkle Ledger & QR Verification</div>
                   </div>
                 </div>
               </div>
@@ -340,7 +340,7 @@ export default function ProjectDetailPage() {
                     <span className="digit-source-tag-hud">8×8 MATRIX</span>
                   </div>
                   <div className="digit-details">
-                    <h4 className="digit-result-title-hud">CLASSIFICATION: <strong>DIGIT {activeDigit}</strong></h4>
+                    <h4 className="digit-result-title-hud">Predicted Digit: <strong>{activeDigit}</strong></h4>
                     <p className="digit-prob-text-hud">MLP Softmax Confidence: <strong>{(95.4 + (activeDigit % 4)).toFixed(1)}%</strong></p>
                     <p className="digit-prob-subtext-hud">Scikit-Learn MLPClassifier • 64 Normalized Grayscale Pixel Features • Streamlit UI</p>
                   </div>
@@ -352,7 +352,7 @@ export default function ProjectDetailPage() {
 
         {/* Key Findings Card */}
         <div className="case-study-section">
-          <h2 className="case-study-heading">// 04. KEY RESULTS & INSIGHTS</h2>
+          <h2 className="case-study-heading">04. Key Results & Findings</h2>
           <div className="case-study-card hud-panel">
             <ul className="findings-list">
               {project.fullExplanation.keyFindings.map((finding, idx) => (
