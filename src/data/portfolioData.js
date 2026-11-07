@@ -156,7 +156,7 @@ export const projectsData = [
     summary: "Analyzed a juice dataset using Python and Pandas, performed data cleaning and exploratory analysis, and experimented with a machine learning model to identify patterns in the data.",
     tag: "Data Science & Machine Learning",
     technologies: ["Python", "Pandas", "NumPy", "Data Cleaning", "EDA", "Machine Learning"],
-    githubUrl: "https://github.com/hazmmarzooq",
+    githubUrl: "https://github.com/HazmMarzooq/juice-data-analytics-",
     liveUrl: "/projects/1",
     featured: true,
     fullExplanation: {
@@ -176,51 +176,26 @@ export const projectsData = [
   },
   {
     id: 2,
-    slug: "handwritten-digit-recognition",
-    title: "Handwritten Digit Recognition",
-    summary: "Built a basic machine learning model for recognizing handwritten digits and tested it using handwritten digit images.",
-    tag: "Machine Learning & Computer Vision",
-    technologies: ["Python", "Machine Learning", "Logistic Regression", "Image Processing", "Scikit-Learn"],
-    githubUrl: "https://github.com/hazmmarzooq",
+    slug: "predictive-analysis-cybercrime-hotspot-area-of-cash-widhrawal",
+    title: "Predictive Analysis of Cybercrime Hotspot Area of Cash Withdrawal",
+    summary: "Predictive analytics framework for cybercrime complaints to forecast likely cash withdrawal locations and ATM hotspots in advance, enabling proactive law-enforcement intervention.",
+    tag: "Cybersecurity & Predictive Analytics",
+    technologies: ["TypeScript", "React", "Gemini AI API", "Leaflet GIS", "Recharts", "Predictive Analytics"],
+    githubUrl: "https://github.com/HazmMarzooq/predictive-analysis-cybercrime-hotspot-area-of-cash-widhrawal",
     liveUrl: "/projects/2",
     featured: true,
     fullExplanation: {
-      problem: "Automated digit recognition is a fundamental problem in computer vision and machine learning. The objective was to build a machine learning model capable of accurately classifying handwritten numerical digits (0 to 9) from image pixel data.",
+      problem: "Cyber financial fraud and phishing scams rely on swift cash withdrawals via mule bank accounts and geographically distributed ATM kiosks before victim accounts can be frozen. Law enforcement cells need an automated intelligence framework capable of analyzing complaint streams and forecasting cash withdrawal hotspots prior to liquidation.",
       methodology: [
-        "Image Preprocessing: Rescaled and flattened 2D grayscale digit images into 1D normalized feature arrays, scaling pixel values from 0-255 down to 0-1.",
-        "Dataset Splitting: Divided image samples into training and test partitions to ensure unbiased evaluation.",
-        "Model Architecture: Implemented a multiclass classification model using Logistic Regression with cross-entropy loss optimization.",
-        "Validation & Testing: Tested classification accuracy across hundreds of test samples, plotting confusion matrices to verify false positives and false negatives."
+        "Complaint Ingestion & Pattern Mining: Aggregated cybercrime FIR metadata, transaction layering velocity, and financial complaint timelines across regional bank branches.",
+        "Geospatial Risk Mapping (GIS): Integrated interactive Leaflet GIS mapping with ATM density clustering across high-risk districts to identify vulnerable withdrawal corridors.",
+        "Predictive Risk Engine: Leveraged multi-variable statistical scoring and Gemini AI analysis to evaluate transaction amounts, mule account patterns, and time-to-withdrawal windows.",
+        "Human-in-the-Loop Interception Workflow: Designed an evidentiary quadrant verification console generating cryptographically signed operational interception advisories for patrol dispatch."
       ],
       keyFindings: [
-        "Demonstrated how mathematical pixel representations enable linear classifiers to differentiate complex geometric curves.",
-        "Attained solid classification performance on clean handwritten digits.",
-        "Analyzed misclassified edge cases (such as ambiguous 4s and 9s or 3s and 8s) to identify avenues for deep learning improvements."
-      ]
-    }
-  },
-  {
-    id: 3,
-    slug: "personal-portfolio-website",
-    title: "Personal Portfolio Website",
-    summary: "A responsive personal portfolio website built with React to showcase my skills, education, projects, and contact information.",
-    tag: "Web Development",
-    technologies: ["React.js", "JavaScript (ES6+)", "Vite", "React Router", "Modern Responsive CSS"],
-    githubUrl: "https://github.com/hazmmarzooq",
-    liveUrl: "/projects/3",
-    featured: true,
-    fullExplanation: {
-      problem: "Recruiters and hiring managers require a clear, responsive, and verifiable online presentation of a student's skills, verified coursework (such as NPTEL), and practical code projects without clutter.",
-      methodology: [
-        "Component-Based Architecture: Built modular, reusable React components (Navbar, Hero, About, Skills, Education, Projects, Experience, Resume, Contact, Footer).",
-        "Multi-Page Navigation: Integrated React Router for dedicated routes (/projects, /projects/:id, /certificates) while preserving smooth scrolling on the main page.",
-        "Responsive & Accessible UI: Crafted pure CSS layouts with CSS variables, Flexbox, and CSS Grid ensuring seamless viewing across mobile, tablet, and desktop viewports.",
-        "Live Asset Integration: Embedded verified NPTEL certifications, direct PDF preview/download routes, and social media connectivity."
-      ],
-      keyFindings: [
-        "Achieved 100% responsiveness without heavy UI library dependencies.",
-        "Delivered fast sub-second load times using Vite's optimized bundling.",
-        "Integrated working multipage detail views that provide recruiters with immediate technical depth."
+        "Forecasted cash withdrawal time windows with up to 89% confidence across identified ATM hotspots.",
+        "Reduced time-to-interception through automated generation of formal law-enforcement dispatch advisories.",
+        "Demonstrated end-to-end operational feasibility during Smart India Hackathon evaluation."
       ]
     }
   }

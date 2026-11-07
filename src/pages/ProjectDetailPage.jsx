@@ -7,8 +7,37 @@ export default function ProjectDetailPage() {
   const project = projectsData.find((p) => p.id === parseInt(id, 10));
 
   // Interactive simulation state for each project
-  const [activeDigit, setActiveDigit] = useState(7);
+  const [selectedAtmCode, setSelectedAtmCode] = useState('ATM-NGP-001');
   const [juiceFilter, setJuiceFilter] = useState('Orange');
+
+  const atmCorridors = [
+    {
+      code: 'ATM-NGP-001',
+      name: 'Beach Road Kiosk',
+      riskScore: 92,
+      window: '20:00 – 22:00 IST',
+      muleVelocity: 'Extreme (₹3,50,000 across 4 hops)',
+      status: 'P1 Operational Interception'
+    },
+    {
+      code: 'ATM-NGP-004',
+      name: 'Bus Terminal Cluster',
+      riskScore: 68,
+      window: '21:30 – 23:00 IST',
+      muleVelocity: 'Elevated (₹1,20,000 across 2 hops)',
+      status: 'Surveillance Patrol Alert'
+    },
+    {
+      code: 'ATM-NGP-007',
+      name: 'Harbor Bazaar ATM',
+      riskScore: 24,
+      window: 'Next Day Morning',
+      muleVelocity: 'Low (Baseline Pattern)',
+      status: 'Passive Telemetry Monitoring'
+    }
+  ];
+
+  const currentAtm = atmCorridors.find(a => a.code === selectedAtmCode) || atmCorridors[0];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -160,55 +189,47 @@ export default function ProjectDetailPage() {
             )}
 
             {project.id === 2 && (
-              <div className="demo-digit-container">
-                <p className="demo-description-hud">
-                  Select a sample handwritten digit below to simulate model feature extraction and classification:
-                </p>
-                <div className="digit-selector-row">
-                  {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
-                    <button
-                      key={digit}
-                      className={`digit-btn-hud ${activeDigit === digit ? 'active' : ''}`}
-                      onClick={() => setActiveDigit(digit)}
-                    >
-                      {digit}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="digit-classification-result-hud">
-                  <div className="digit-display-box-hud">
-                    <span className="drawn-digit-hud">{activeDigit}</span>
-                    <span className="digit-source-tag-hud">SAMPLE MATRIX</span>
-                  </div>
-                  <div className="digit-details">
-                    <h4 className="digit-result-title-hud">CLASSIFICATION: <strong>DIGIT {activeDigit}</strong></h4>
-                    <p className="digit-prob-text-hud">Softmax Probability Score: <strong>{(94.2 + (activeDigit % 4)).toFixed(1)}%</strong></p>
-                    <p className="digit-prob-subtext-hud">Algorithm: Multiclass Logistic Regression with L2 Regularization.</p>
+              <div className="demo-cybercrime-container">
+                <div className="demo-controls">
+                  <span className="demo-label-hud">SELECT SURVEILLANCE ATM CORRIDOR:</span>
+                  <div className="demo-buttons">
+                    {atmCorridors.map((atm) => (
+                      <button
+                        key={atm.code}
+                        className={`filter-btn-hud ${selectedAtmCode === atm.code ? 'active' : ''}`}
+                        onClick={() => setSelectedAtmCode(atm.code)}
+                      >
+                        [ {atm.code}: {atm.name} ]
+                      </button>
+                    ))}
                   </div>
                 </div>
-              </div>
-            )}
 
-            {project.id === 3 && (
-              <div className="demo-portfolio-container">
-                <h4 style={{ color: 'var(--sys-cyan-bright)', marginBottom: '1rem', fontFamily: 'var(--font-mono)' }}>// ARCHITECTURE TELEMETRY</h4>
-                <div className="portfolio-arch-grid">
-                  <div className="arch-item hud-panel">
-                    <strong style={{ color: 'var(--sys-cyan-bright)' }}>Vite Bundler</strong>
-                    <p>Instant Hot Module Replacement and optimized asset distribution.</p>
+                <div className="demo-stats-preview" style={{ marginTop: '1.25rem' }}>
+                  <div className="demo-stat-box-hud">
+                    <span className="demo-stat-metric-hud" style={{ color: currentAtm.riskScore > 70 ? 'var(--sys-cyan-bright)' : 'inherit' }}>
+                      {currentAtm.riskScore}%
+                    </span>
+                    <span className="demo-stat-label-hud">PREDICTED RISK INDEX</span>
                   </div>
-                  <div className="arch-item hud-panel">
-                    <strong style={{ color: 'var(--sys-cyan-bright)' }}>React 18</strong>
-                    <p>Component-based modular architecture and responsive state management.</p>
+                  <div className="demo-stat-box-hud">
+                    <span className="demo-stat-metric-hud">
+                      {currentAtm.window}
+                    </span>
+                    <span className="demo-stat-label-hud">WITHDRAWAL WINDOW</span>
                   </div>
-                  <div className="arch-item hud-panel">
-                    <strong style={{ color: 'var(--sys-cyan-bright)' }}>React Router</strong>
-                    <p>Client-side routing supporting dedicated URLs for projects and certificates.</p>
+                  <div className="demo-stat-box-hud">
+                    <span className="demo-stat-metric-hud" style={{ fontSize: '1.1rem' }}>
+                      {currentAtm.status}
+                    </span>
+                    <span className="demo-stat-label-hud">ADVISORY STATUS</span>
                   </div>
-                  <div className="arch-item hud-panel">
-                    <strong style={{ color: 'var(--sys-cyan-bright)' }}>Responsive Design</strong>
-                    <p>CSS Grid and Flexbox with zero heavy UI library dependencies.</p>
+                </div>
+
+                <div className="hud-panel" style={{ marginTop: '1.25rem', padding: '1rem', borderLeft: '3px solid var(--sys-cyan-bright)', background: 'rgba(0, 229, 255, 0.03)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.82rem' }}>
+                    <span>// MULE LAYERING TELEMETRY: <strong style={{ color: 'var(--sys-cyan-bright)' }}>{currentAtm.muleVelocity}</strong></span>
+                    <span style={{ color: 'var(--sys-cyan-glow)' }}>AI ENGINE: GEMINI MULTIVARIATE RISK MATRIX</span>
                   </div>
                 </div>
               </div>
