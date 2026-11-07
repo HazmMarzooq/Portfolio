@@ -13,11 +13,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer-hud">
       <div className="container footer-container">
         <div className="footer-top">
           <div className="footer-brand">
-            <h3 className="footer-name">{personalInfo.name}</h3>
+            <div className="footer-brand-title">
+              <span className="footer-brand-bracket">[</span>
+              <span className="footer-brand-name">{personalInfo.name}</span>
+              <span className="footer-brand-bracket">]</span>
+            </div>
             <p className="footer-tagline">
               Computer Science and Engineering Student, Software Developer • Data Science • Web Development • Cybersecurity
             </p>
@@ -25,33 +29,34 @@ export default function Footer() {
 
           <div className="footer-links-group">
             <div className="footer-nav-links">
-              <Link to="/#home">Home</Link>
-              <Link to="/#about">About</Link>
-              <Link to="/#skills">Skills</Link>
-              <Link to="/#education">Education</Link>
-              <Link to="/projects">Projects</Link>
-              <Link to="/certificates">Certificates</Link>
-              <Link to="/#experience">Experience</Link>
-              <Link to="/#resume">Resume</Link>
-              <Link to="/#contact">Contact</Link>
+              <Link to="/#home">HOME</Link>
+              <Link to="/#about">ABOUT</Link>
+              <Link to="/#skills">SKILLS</Link>
+              <Link to="/#education">EDUCATION</Link>
+              <Link to="/projects">PROJECTS</Link>
+              <Link to="/certificates">CERTIFICATES</Link>
+              <Link to="/#experience">EXPERIENCE</Link>
+              <Link to="/#resume">RESUME</Link>
+              <Link to="/#contact">CONTACT</Link>
             </div>
 
             <button 
               onClick={scrollToTop} 
-              className="scroll-top-btn"
+              className="scroll-top-btn-hud"
               aria-label="Scroll back to top"
+              title="Return to Top"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="18 15 12 9 6 15"></polyline>
               </svg>
-              <span>Back to Top</span>
+              <span>TOP</span>
             </button>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {currentYear} {personalInfo.name}. All rights reserved. Built with React.js and Vite.
+            © {currentYear} {personalInfo.name} // DEVELOPER SYSTEM v2.0 • BUILT WITH REACT & VITE
           </p>
           <div className="footer-social-icons">
             <a 
@@ -59,7 +64,7 @@ export default function Footer() {
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="LinkedIn Profile"
-              className="footer-social-icon"
+              className="footer-social-icon-hud"
               title="LinkedIn Profile"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -71,7 +76,7 @@ export default function Footer() {
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="GitHub Profile"
-              className="footer-social-icon"
+              className="footer-social-icon-hud"
               title="GitHub Profile"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -81,7 +86,7 @@ export default function Footer() {
             <a 
               href={`mailto:${personalInfo.email}`} 
               aria-label="Send an Email"
-              className="footer-social-icon"
+              className="footer-social-icon-hud"
               title="Send an Email"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

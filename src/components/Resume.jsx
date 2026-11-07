@@ -7,27 +7,31 @@ export default function Resume() {
     <section id="resume" className="resume-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">Curriculum Vitae</span>
-          <h2 className="section-title">Resume and Qualifications</h2>
+          <span className="section-eyebrow">[ SYSTEM ITEM // 07 ]</span>
+          <h2 className="section-title">Resume & Curriculum Vitae</h2>
           <p className="section-subtitle">
             Get a comprehensive overview of my academic records, technical proficiencies, certified coursework, and project milestones.
           </p>
         </div>
 
-        <div className="resume-card">
-          <div className="resume-card-glow"></div>
+        <div className="resume-card hud-panel hud-item-panel">
+          {/* Corner HUD Brackets */}
+          <div className="hud-corner-bracket top-left"></div>
+          <div className="hud-corner-bracket top-right"></div>
+          <div className="hud-corner-bracket bottom-left"></div>
+          <div className="hud-corner-bracket bottom-right"></div>
           
           <div className="resume-content">
             <div className="resume-badge-group">
-              <span className="resume-pill">
+              <span className="resume-pill-hud">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle', marginRight: '5px' }}>
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
                 </svg>
-                PDF Document
+                ITEM: PDF_DOCUMENT
               </span>
-              <span className="resume-pill">Computer Science and Engineering</span>
-              <span className="resume-pill">Recruiter Ready</span>
+              <span className="resume-pill-hud">CSE_DISCIPLINE</span>
+              <span className="resume-pill-hud">RECRUITER_READY</span>
             </div>
 
             <h3 className="resume-headline">
@@ -39,28 +43,20 @@ export default function Resume() {
             </p>
 
             <div className="resume-features-grid">
-              <div className="resume-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="resume-feature-hud">
+                <span className="feature-tick-hud">✓</span>
                 <span>Complete Academic History</span>
               </div>
-              <div className="resume-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="resume-feature-hud">
+                <span className="feature-tick-hud">✓</span>
                 <span>Technical Skill Inventory</span>
               </div>
-              <div className="resume-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Machine Learning and Web Projects</span>
+              <div className="resume-feature-hud">
+                <span className="feature-tick-hud">✓</span>
+                <span>Machine Learning & Web Projects</span>
               </div>
-              <div className="resume-feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="resume-feature-hud">
+                <span className="feature-tick-hud">✓</span>
                 <span>Verified NPTEL Accreditation</span>
               </div>
             </div>
@@ -68,7 +64,7 @@ export default function Resume() {
             <div className="resume-cta-group">
               <a 
                 href={personalInfo.resumeUrl} 
-                className="btn btn-primary resume-download-btn"
+                className="btn btn-hud-primary resume-download-btn"
                 download="S_Hazm_Marzooq_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -83,7 +79,7 @@ export default function Resume() {
 
               <a 
                 href={personalInfo.resumeUrl} 
-                className="btn btn-secondary resume-view-btn"
+                className="btn btn-hud-secondary resume-view-btn"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -96,7 +92,7 @@ export default function Resume() {
 
               <Link 
                 to="/certificates" 
-                className="btn btn-secondary resume-view-btn"
+                className="btn btn-hud-secondary resume-view-btn"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="8" r="7"></circle>

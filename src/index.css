@@ -1,55 +1,68 @@
 /* ==========================================================================
-   Global Reset & Modern Theme Variables
-   Clean, modern, recruiter-friendly design
+   DEVELOPER SYSTEM INTERFACE - GLOBAL THEME & RESET
+   Inspired by Solo Leveling Futuristic HUD Design Language
+   Developer-Themed Dark Environment • Neon Cyan & Cobalt Blue
    ========================================================================== */
 
 :root {
-  /* Color Palette - Modern Slate & Indigo */
-  --bg-primary: #0a0f1d;
-  --bg-secondary: #0f172a;
-  --bg-card: #162036;
-  --bg-card-hover: #1c2944;
-  --bg-glass: rgba(16, 24, 46, 0.75);
+  /* System Core Colors */
+  --sys-bg-void: #030712;
+  --sys-bg-base: #060b18;
+  --sys-bg-panel: rgba(8, 15, 30, 0.82);
+  --sys-bg-card: rgba(11, 21, 42, 0.76);
+  --sys-bg-hover: rgba(16, 32, 64, 0.85);
+  --sys-bg-glass: rgba(6, 11, 24, 0.88);
+
+  /* Neon Energy / HUD Highlights */
+  --sys-cyan-bright: #00f0ff;
+  --sys-cyan-glow: rgba(0, 240, 255, 0.35);
+  --sys-cyan-soft: rgba(0, 240, 255, 0.12);
+  --sys-cyan-border: rgba(0, 240, 255, 0.28);
   
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(99, 102, 241, 0.3);
-  --border-focus: #6366f1;
+  --sys-blue-neon: #0088ff;
+  --sys-blue-deep: #1d4ed8;
+  --sys-blue-glow: rgba(0, 136, 255, 0.3);
   
+  --sys-gradient-cyan: linear-gradient(135deg, #00f0ff 0%, #0088ff 50%, #3b82f6 100%);
+  --sys-gradient-panel: linear-gradient(180deg, rgba(14, 27, 52, 0.75) 0%, rgba(8, 15, 30, 0.85) 100%);
+  --sys-gradient-border: linear-gradient(135deg, rgba(0, 240, 255, 0.6) 0%, rgba(0, 136, 255, 0.2) 100%);
+
+  /* Typography Colors */
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  
-  --accent-primary: #3b82f6;
-  --accent-secondary: #6366f1;
-  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
-  --accent-glow: rgba(59, 130, 246, 0.15);
-  --accent-tag: rgba(59, 130, 246, 0.12);
-  --accent-tag-text: #60a5fa;
+  --text-cyan: #38bdf8;
+  --text-bright-cyan: #a5f3fc;
 
-  --success: #10b981;
-  --success-bg: rgba(16, 185, 129, 0.12);
-  
-  /* Typography */
-  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Status Colors */
+  --sys-success: #10b981;
+  --sys-success-glow: rgba(16, 185, 129, 0.2);
+  --sys-warning: #f59e0b;
+  --sys-danger: #ef4444;
+
+  /* Fonts */
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  
-  /* Elevations & Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --shadow-glow: 0 0 25px rgba(59, 130, 246, 0.25);
-  
+  --font-hud: 'Rajdhani', 'Plus Jakarta Sans', sans-serif;
+
   /* Layout */
-  --max-width: 1160px;
+  --max-width: 1200px;
   --navbar-height: 72px;
-  --border-radius-sm: 8px;
-  --border-radius-md: 14px;
-  --border-radius-lg: 20px;
-  --border-radius-full: 9999px;
-  
+
+  /* HUD Radii & Angles */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* Glow Shadows */
+  --shadow-hud: 0 0 15px rgba(0, 240, 255, 0.2);
+  --shadow-hud-intense: 0 0 25px rgba(0, 240, 255, 0.45);
+  --shadow-panel: 0 8px 32px rgba(0, 0, 0, 0.65);
+
   /* Transitions */
-  --transition-fast: 0.18s ease;
-  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after {
@@ -66,27 +79,85 @@ html {
 
 body {
   font-family: var(--font-main);
-  background-color: var(--bg-primary);
+  background-color: var(--sys-bg-void);
   color: var(--text-primary);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Software Developer Themed Background Atmosphere */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -2;
+  /* Developer grid + subtle code matrix atmosphere */
   background-image: 
-    radial-gradient(circle at 15% 10%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 65%, rgba(99, 102, 241, 0.06) 0%, transparent 45%);
+    linear-gradient(to right, rgba(0, 240, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 136, 255, 0.15), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(0, 240, 255, 0.06), transparent 60%);
+  background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
-/* Scroll Offset for sticky navbar */
+/* Subtle scanline effect for high-tech HUD feel */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.35;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--sys-cyan-bright);
+  color: var(--sys-bg-void);
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Section scroll offset */
 section {
-  scroll-margin-top: calc(var(--navbar-height) + 20px);
+  scroll-margin-top: calc(var(--navbar-height) + 24px);
+  position: relative;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 button {
@@ -113,52 +184,76 @@ img {
 .section-header {
   text-align: center;
   margin-bottom: 3.5rem;
+  position: relative;
 }
 
 .section-eyebrow {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent-primary);
-  margin-bottom: 0.5rem;
-  background: var(--accent-tag);
-  padding: 0.3rem 0.9rem;
-  border-radius: var(--border-radius-full);
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  letter-spacing: 0.16em;
+  color: var(--sys-cyan-bright);
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid var(--sys-cyan-border);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.85rem;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
+  position: relative;
 }
 
+.section-eyebrow::before,
+.section-eyebrow::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--sys-cyan-bright);
+}
+.section-eyebrow::before { top: -1px; left: -1px; }
+.section-eyebrow::after { bottom: -1px; right: -1px; }
+
 .section-title {
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 2.25rem;
+  font-weight: 800;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .section-subtitle {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   color: var(--text-secondary);
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
-/* Custom Scrollbar */
+/* Custom HUD Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--sys-bg-void);
+  border-left: 1px solid rgba(0, 240, 255, 0.08);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-card);
-  border-radius: 5px;
-  border: 2px solid var(--bg-primary);
+  background: rgba(0, 240, 255, 0.25);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.4);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--sys-cyan-bright);
+  box-shadow: 0 0 10px var(--sys-cyan-bright);
 }

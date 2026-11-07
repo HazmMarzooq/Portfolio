@@ -7,8 +7,8 @@ export default function Projects() {
     <section id="projects" className="projects-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-eyebrow">Portfolio Projects</span>
-          <h2 className="section-title">Featured Academic & Personal Work</h2>
+          <span className="section-eyebrow">[ SYSTEM MISSIONS // 05 ]</span>
+          <h2 className="section-title">Featured Engineering Projects</h2>
           <p className="section-subtitle">
             Hands-on projects covering Machine Learning, Data Analytics, and Web Application development. Click any project to inspect full case studies and technical explanations.
           </p>
@@ -16,11 +16,17 @@ export default function Projects() {
 
         <div className="projects-grid">
           {projectsData.map((project) => (
-            <article key={project.id} className="project-card">
-              {/* Project Top Bar / Category Tag */}
+            <article key={project.id} className="project-card hud-panel hud-quest-card">
+              {/* Corner brackets */}
+              <div className="hud-corner-bracket top-left"></div>
+              <div className="hud-corner-bracket top-right"></div>
+              <div className="hud-corner-bracket bottom-left"></div>
+              <div className="hud-corner-bracket bottom-right"></div>
+
+              {/* Project Top Bar / System Category Tag */}
               <div className="project-card-header">
-                <span className="project-tag">{project.tag}</span>
-                <div className="project-number">0{project.id}</div>
+                <span className="project-tag-hud">// {project.tag.toUpperCase()}</span>
+                <div className="project-number-hud">PROJECT_0{project.id}</div>
               </div>
 
               {/* Project Content */}
@@ -31,7 +37,7 @@ export default function Projects() {
                 {/* Tech Stack Badges */}
                 <div className="project-tech-stack">
                   {project.technologies.map((tech) => (
-                    <span key={tech} className="tech-badge">{tech}</span>
+                    <span key={tech} className="tech-badge-hud">{tech}</span>
                   ))}
                 </div>
               </div>
@@ -40,9 +46,8 @@ export default function Projects() {
               <div className="project-card-footer">
                 <Link
                   to={`/projects/${project.id}`}
-                  className="project-btn project-btn-demo"
+                  className="btn-project-action btn-project-demo"
                   aria-label={`Read technical case study for ${project.title}`}
-                  style={{ flex: 1.2 }}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -55,7 +60,7 @@ export default function Projects() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="project-btn project-btn-code"
+                  className="btn-project-action btn-project-code"
                   aria-label={`View source code for ${project.title}`}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -68,8 +73,8 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="projects-explore-cta" style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <Link to="/projects" className="btn btn-secondary">
+        <div className="projects-explore-cta">
+          <Link to="/projects" className="btn btn-hud-secondary">
             <span>Explore All Project Deep-Dives in Directory</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
