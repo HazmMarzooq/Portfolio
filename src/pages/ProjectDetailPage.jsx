@@ -9,6 +9,40 @@ export default function ProjectDetailPage() {
   // Interactive simulation state for each project
   const [selectedAtmCode, setSelectedAtmCode] = useState('ATM-NGP-001');
   const [juiceFilter, setJuiceFilter] = useState('Orange');
+  const [selectedUlpin, setSelectedUlpin] = useState('TN-NGP-2026-90412');
+  const [activeDigit, setActiveDigit] = useState(7);
+
+  const sampleParcels = [
+    {
+      ulpin: 'TN-NGP-2026-90412',
+      village: 'Nagore Coastal Ward 3',
+      owner: 'Ramesh Sundaram (Approved)',
+      encumbrance: 'No Active Liens (Clean)',
+      blockHash: '0x7f8a92c4...e13b',
+      prevHash: '0x3a4b11e9...87fa',
+      status: 'VERIFIED ON-CHAIN'
+    },
+    {
+      ulpin: 'TN-KGI-2026-44109',
+      village: 'Kilvelur Agri Sector B',
+      owner: 'Priya Narayanan (Approved)',
+      encumbrance: 'Agri-Loan Mortgage (Active)',
+      blockHash: '0x99e2bc81...a421',
+      prevHash: '0x7f8a92c4...e13b',
+      status: 'MORTGAGE RECORDED'
+    },
+    {
+      ulpin: 'TN-CBE-2026-78103',
+      village: 'Vedaranyam Salt Field 1',
+      owner: 'Govindasamy K (Approved)',
+      encumbrance: 'Court Dispute Flagged',
+      blockHash: '0x12d4a77b...c988',
+      prevHash: '0x99e2bc81...a421',
+      status: 'LITIGATION FREEZE'
+    }
+  ];
+
+  const currentParcel = sampleParcels.find(p => p.ulpin === selectedUlpin) || sampleParcels[0];
 
   const atmCorridors = [
     {
@@ -230,6 +264,85 @@ export default function ProjectDetailPage() {
                   <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.82rem' }}>
                     <span>// MULE LAYERING TELEMETRY: <strong style={{ color: 'var(--sys-cyan-bright)' }}>{currentAtm.muleVelocity}</strong></span>
                     <span style={{ color: 'var(--sys-cyan-glow)' }}>AI ENGINE: GEMINI MULTIVARIATE RISK MATRIX</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {project.id === 3 && (
+              <div className="demo-bhuchain-container">
+                <div className="demo-controls">
+                  <span className="demo-label-hud">SELECT VERIFIED LAND PARCEL (ULPIN):</span>
+                  <div className="demo-buttons">
+                    {sampleParcels.map((parcel) => (
+                      <button
+                        key={parcel.ulpin}
+                        className={`filter-btn-hud ${selectedUlpin === parcel.ulpin ? 'active' : ''}`}
+                        onClick={() => setSelectedUlpin(parcel.ulpin)}
+                      >
+                        [ {parcel.ulpin} ]
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="demo-stats-preview" style={{ marginTop: '1.25rem' }}>
+                  <div className="demo-stat-box-hud">
+                    <span className="demo-stat-metric-hud" style={{ fontSize: '1rem', color: 'var(--sys-cyan-bright)' }}>
+                      {currentParcel.status}
+                    </span>
+                    <span className="demo-stat-label-hud">LEDGER STATE</span>
+                  </div>
+                  <div className="demo-stat-box-hud">
+                    <span className="demo-stat-metric-hud" style={{ fontSize: '0.95rem' }}>
+                      {currentParcel.owner}
+                    </span>
+                    <span className="demo-stat-label-hud">APPROVED OWNER</span>
+                  </div>
+                  <div className="demo-stat-box-hud">
+                    <span className="demo-stat-metric-hud" style={{ fontSize: '0.92rem' }}>
+                      {currentParcel.encumbrance}
+                    </span>
+                    <span className="demo-stat-label-hud">ENCUMBRANCE AUDIT</span>
+                  </div>
+                </div>
+
+                <div className="hud-panel" style={{ marginTop: '1.25rem', padding: '1rem', borderLeft: '3px solid var(--sys-cyan-bright)', background: 'rgba(0, 229, 255, 0.03)' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>
+                    <div>// CURRENT BLOCK HASH (SHA-256): <strong style={{ color: 'var(--sys-cyan-bright)', wordBreak: 'break-all' }}>{currentParcel.blockHash}</strong></div>
+                    <div>// PREVIOUS EVENT HASH: <span style={{ color: 'var(--text-muted)', wordBreak: 'break-all' }}>{currentParcel.prevHash}</span></div>
+                    <div style={{ color: 'var(--sys-cyan-glow)' }}>VERIFICATION PROTOCOL: APPEND-ONLY MERKLE TREE / QR INTEGRITY VERIFIED</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {project.id === 4 && (
+              <div className="demo-digit-container">
+                <p className="demo-description-hud">
+                  Select a sample handwritten digit below to simulate 8×8 feature vector extraction and MLP neural network prediction:
+                </p>
+                <div className="digit-selector-row">
+                  {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
+                    <button
+                      key={digit}
+                      className={`digit-btn-hud ${activeDigit === digit ? 'active' : ''}`}
+                      onClick={() => setActiveDigit(digit)}
+                    >
+                      {digit}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="digit-classification-result-hud">
+                  <div className="digit-display-box-hud">
+                    <span className="drawn-digit-hud">{activeDigit}</span>
+                    <span className="digit-source-tag-hud">8×8 MATRIX</span>
+                  </div>
+                  <div className="digit-details">
+                    <h4 className="digit-result-title-hud">CLASSIFICATION: <strong>DIGIT {activeDigit}</strong></h4>
+                    <p className="digit-prob-text-hud">MLP Softmax Confidence: <strong>{(95.4 + (activeDigit % 4)).toFixed(1)}%</strong></p>
+                    <p className="digit-prob-subtext-hud">Scikit-Learn MLPClassifier • 64 Normalized Grayscale Pixel Features • Streamlit UI</p>
                   </div>
                 </div>
               </div>

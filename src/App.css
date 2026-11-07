@@ -2641,3 +2641,361 @@ a.meta-value:hover {
   padding-top: 2rem;
   border-top: 1px dashed rgba(0, 240, 255, 0.18);
 }
+
+/* ==========================================================================
+   MOBILE & RESPONSIVE ALIGNMENT FIXES (SPECIAL FOCUS: ACCREDITATIONS & HUD)
+   ========================================================================== */
+
+/* Global Viewport & Container Safety */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  /* Prevent any element from exceeding viewport width */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  .container {
+    padding: 0 1rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .multipage-wrapper {
+    padding-top: calc(var(--navbar-height) + 1.25rem);
+    padding-bottom: 3.5rem;
+    overflow-x: hidden;
+  }
+
+  /* Breadcrumb wrapping on mobile */
+  .page-breadcrumb-hud {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  .breadcrumb-link-hud,
+  .breadcrumb-current-hud {
+    word-break: break-word;
+  }
+
+  /* Buttons safety: allow multi-line wrapping instead of forced overflow */
+  .btn {
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  /* --------------------------------------------------------------------------
+     CERTIFICATES PAGE & NPTEL FEATURED CARD ALIGNMENT
+     -------------------------------------------------------------------------- */
+  .nptel-featured-card {
+    padding: 1.25rem 0.9rem;
+    margin-top: 1.25rem;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .nptel-featured-badge-hud {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.6rem;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+  }
+
+  .nptel-grid {
+    gap: 1.5rem;
+  }
+
+  .cert-preview-frame {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cert-preview-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cert-preview-overlay-hud .cert-overlay-btn {
+    white-space: normal;
+    font-size: 0.75rem;
+    padding: 0.6rem 0.8rem;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .nptel-score-tag-hud {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .score-number-hud {
+    font-size: 1.15rem;
+  }
+
+  .score-tag-label-hud {
+    font-size: 0.68rem;
+  }
+
+  /* Long Title Wrapping */
+  .nptel-cert-title {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    margin-bottom: 0.5rem;
+  }
+
+  .nptel-issuer {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    word-break: break-word;
+    margin-bottom: 1rem;
+  }
+
+  /* Metadata Table: Stack Rows Cleanly on Mobile */
+  .nptel-meta-table-hud {
+    padding: 0.75rem;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .nptel-meta-row-hud {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.08);
+  }
+
+  .nptel-meta-row-hud:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .nptel-meta-k {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+
+  .nptel-meta-v {
+    font-size: 0.82rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .nptel-description {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .skills-covered-title-hud {
+    font-size: 0.7rem;
+  }
+
+  .skills-covered-tags {
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .skill-covered-tag-hud {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    word-break: break-word;
+  }
+
+  /* Buttons stack full-width on mobile */
+  .nptel-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .nptel-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     HOME PAGE: EXPERIENCE & ACCREDITATION CARD ALIGNMENT
+     -------------------------------------------------------------------------- */
+  .experience-featured-cert {
+    padding: 1.25rem 0.9rem;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .cert-ribbon-hud {
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    word-break: break-word;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .cert-status-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .cert-featured-tag {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .cert-roll-tag {
+    font-size: 0.68rem;
+    word-break: break-all;
+  }
+
+  .cert-featured-title {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    margin-bottom: 0.4rem;
+  }
+
+  .cert-featured-issuer {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    word-break: break-word;
+    margin-bottom: 0.85rem;
+  }
+
+  .cert-featured-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .cert-featured-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .cert-featured-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    white-space: normal;
+  }
+
+  .cert-featured-badge-box {
+    margin-top: 1.5rem;
+    width: 100%;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .score-circle-hud {
+    width: 105px;
+    height: 105px;
+  }
+
+  .score-val {
+    font-size: 1.7rem;
+  }
+
+  .score-lbl {
+    font-size: 0.58rem;
+  }
+
+  .credits-lbl-hud {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     PROJECTS & SIMULATION CARDS ON MOBILE
+     -------------------------------------------------------------------------- */
+  .project-detail-hero {
+    padding: 1.25rem 0.9rem;
+  }
+
+  .project-detail-title {
+    font-size: 1.25rem;
+    word-break: break-word;
+    line-height: 1.3;
+  }
+
+  .project-detail-meta-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .project-detail-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .project-detail-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-detail-bottom-nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .project-detail-bottom-nav .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .demo-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .demo-buttons .filter-btn-hud {
+    width: 100%;
+    text-align: center;
+    word-break: break-word;
+    font-size: 0.72rem;
+  }
+
+  .demo-stats-preview {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .category-filter-bar-hud {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .category-filter-bar-hud .filter-btn-hud {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.6rem;
+  }
+}

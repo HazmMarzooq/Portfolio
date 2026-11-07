@@ -198,6 +198,56 @@ export const projectsData = [
         "Demonstrated end-to-end operational feasibility during Smart India Hackathon evaluation."
       ]
     }
+  },
+  {
+    id: 3,
+    slug: "bhu-chain-land-ownership-verification",
+    title: "Bhu-Chain: Blockchain-Based Land Ownership Verification for India",
+    summary: "A cryptographically secure land-record verification layer utilizing ULPIN (Bhu-Aadhaar), SHA-256 block linking, immutable event ledgers, and QR verification to detect forged or duplicate titles.",
+    tag: "Blockchain & Web Verification",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma ORM", "SHA-256 Hashing", "QR Verification"],
+    githubUrl: "https://github.com/HazmMarzooq/bhu-chain",
+    liveUrl: "/projects/3",
+    featured: true,
+    fullExplanation: {
+      problem: "Traditional land registration systems face challenges with forged documents, fraudulent parallel sales deeds, and opaque mutation processes. Citizens, lending banks, and government authorities require a tamper-proof, append-only verification platform that audits title history without exposing private citizen identifiers.",
+      methodology: [
+        "ULPIN-Centric Data Modeling: Structured land parcel records around 14-digit Unique Land Parcel Identification Numbers (ULPIN) with georeferenced coordinates, subdivision records, and encumbrance flags.",
+        "Append-Only Blockchain Simulation: Constructed cryptographic blocks chaining SHA-256 hashes of approved title events (registrations, mutations, mortgages, court liens, and pledge releases).",
+        "Role-Based Governance Workflows: Implemented multi-stakeholder dashboards (Citizen, Sub-Registrar, Revenue Officer, Bank Officer, Auditor, Admin) for verification and mutation sign-offs.",
+        "Instant QR Verification: Embedded automated cryptographic QR codes on verification deeds enabling real-time on-field authenticity audits by banking and revenue personnel."
+      ],
+      keyFindings: [
+        "Prevented duplicate sales deed registrations through instantaneous on-chain encumbrance checks.",
+        "Maintained 100% cryptographic audit trail integrity across simulated parcel mutation events.",
+        "Established zero-knowledge personal data principles by storing only cryptographic document hashes rather than sensitive citizen identity papers."
+      ]
+    }
+  },
+  {
+    id: 4,
+    slug: "handwritten-digit-recognition-python-machine-learning",
+    title: "Handwritten Digit Recognition using Python & Machine Learning",
+    summary: "Built and evaluated a multiclass classification model using Scikit-Learn MLPClassifier and Streamlit UI to transform raw 8×8 image pixel matrices into 64 normalized features and classify numerical digits.",
+    tag: "Machine Learning & Computer Vision",
+    technologies: ["Python", "Scikit-Learn", "MLPClassifier", "Streamlit", "NumPy", "Image Processing"],
+    githubUrl: "https://github.com/HazmMarzooq/Handwritten-digit-recognition-using-python-machine-learning",
+    liveUrl: "/projects/4",
+    featured: true,
+    fullExplanation: {
+      problem: "Classifying handwritten numbers from scanned papers and banking documents requires resilient image preprocessing that accounts for handwriting variances, noise, thickness inconsistencies, and ambiguous curves.",
+      methodology: [
+        "Image Normalization Pipeline: Rescaled uploaded grayscale digit images to standard 8×8 pixel matrices, flattening 2D matrices into 64 normalized numerical input feature vectors.",
+        "Multi-Layer Perceptron (MLP) Classifier: Trained a neural network classifier using Scikit-Learn's MLPClassifier with hidden layers and backpropagation optimization.",
+        "Interactive Streamlit Web Interface: Engineered a streamlined UI allowing users to upload digit images or select test samples to visualize pixel grids and softmax probability scores in real time.",
+        "Confusion Matrix & Error Analysis: Mapped decision boundaries and evaluated misclassified edge cases to ensure balanced precision across all numerical classes (0–9)."
+      ],
+      keyFindings: [
+        "Attained robust classification accuracy across standard handwritten digit evaluation benchmarks.",
+        "Demonstrated real-time feature extraction pipeline transitioning from 8×8 pixel matrices to high-confidence predictions.",
+        "Delivered an accessible interactive Streamlit demo demonstrating practical computer vision fundamentals."
+      ]
+    }
   }
 ];
 

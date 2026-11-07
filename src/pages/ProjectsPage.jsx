@@ -9,7 +9,7 @@ export default function ProjectsPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const categories = ['All', 'Data Science', 'Machine Learning', 'Cybersecurity'];
+  const categories = ['All', 'Data Science', 'Machine Learning', 'Blockchain', 'Cybersecurity'];
 
   const filteredProjects = filter === 'All'
     ? projectsData
