@@ -42,11 +42,16 @@ export default function RadialMenu({ isOpen, onClose }) {
 
   // Keyboard accessibility: ESC key to close
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        e.preventDefault();
+        e.stopPropagation();
         onClose();
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
@@ -65,28 +70,60 @@ export default function RadialMenu({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSelect = (item) => {
+  const handleMenuItemClick = (e, targetId) => {
+    // 1. Prevent event bubbling into parent toggles or overlay handlers
+    e.stopPropagation();
+
+    // 2. Clear overflow lock immediately so smooth scrolling is not blocked
+    document.body.style.overflow = '';
+
+    // 3. FIRST: Close the radial menu
     onClose();
 
-    // If on homepage, smooth scroll to section
-    if (location.pathname === '/') {
-      const target = document.querySelector(item.hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If on subpage (e.g. /projects or /certificates), navigate to /#hash
-      navigate('/' + item.hash);
+    // 4. THEN: Navigate / scroll to target
+    if (location.pathname !== '/') {
+      navigate('/#' + targetId);
+      return;
     }
+
+    // Keep URL hash updated
+    window.history.replaceState(null, '', '#' + targetId);
+
+    // Smoothly scroll to the target section
+    requestAnimationFrame(() => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    });
+  };
+
+  const handleOverlayClick = (e) => {
+    // Only close if clicked outside the radial menu dial
+    if (e.target.closest && e.target.closest('.radial-menu-dial')) {
+      return;
+    }
+    e.stopPropagation();
+    onClose();
   };
 
   return (
     <div 
       className="radial-menu-overlay"
-      onClick={onClose}
+      onClick={handleOverlayClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+          e.stopPropagation();
+          onClose();
+        }
+      }}
       role="dialog"
       aria-modal="true"
       aria-label="System Radial Navigation"
+      tabIndex={-1}
     >
       {/* Background HUD Grid lines */}
       <div className="radial-backdrop-grid"></div>
@@ -110,8 +147,12 @@ export default function RadialMenu({ isOpen, onClose }) {
 
         {/* Center Glowing SYSTEM Core Button */}
         <button
+          type="button"
           className="radial-center-core"
-          onClick={onClose}
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
           aria-label="Close Radial Menu"
           title="Close Menu"
         >
@@ -131,9 +172,12 @@ export default function RadialMenu({ isOpen, onClose }) {
           return (
             <button
               key={sec.id}
+              type="button"
               className="radial-node-btn"
-              onClick={() => handleSelect(sec)}
+              onClick={(e) => handleMenuItemClick(e, sec.id)}
               style={{
+                '--node-x': `${x}px`,
+                '--node-y': `${y}px`,
                 transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
               }}
               title={`Scroll to ${sec.label}`}

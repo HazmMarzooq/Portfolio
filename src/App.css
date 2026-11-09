@@ -520,6 +520,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  --node-x: 0px;
+  --node-y: 0px;
   background: rgba(6, 12, 26, 0.92);
   border: 1px solid var(--sys-cyan-border);
   box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);

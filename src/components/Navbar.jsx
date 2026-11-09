@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { personalInfo } from '../data/portfolioData';
 import RadialMenu from './RadialMenu';
 
 export default function Navbar() {
-  const [isRadialOpen, setIsRadialOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -20,6 +20,32 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleCloseMenu = useCallback(() => {
+    document.body.style.overflow = '';
+    setIsMenuOpen(false);
+  }, []);
+
+  const handleToggleMenu = useCallback((e) => {
+    e.stopPropagation();
+    setIsMenuOpen((prev) => !prev);
+  }, []);
+
+  // Global ESC key listener to ensure Escape always closes the radial menu
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' || event.key === 'Esc') {
+        event.preventDefault();
+        event.stopPropagation();
+        handleCloseMenu();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMenuOpen, handleCloseMenu]);
 
   return (
     <>
@@ -47,10 +73,12 @@ export default function Navbar() {
 
             {/* The One Circular SYSTEM Button */}
             <button
+              type="button"
               className="system-radial-trigger-btn"
-              onClick={() => setIsRadialOpen(true)}
-              aria-label="Open Futuristic System Radial Menu"
-              title="Open System Radial Interface"
+              onClick={handleToggleMenu}
+              aria-label={isMenuOpen ? "Close Radial Navigation Menu" : "Open Futuristic System Radial Menu"}
+              title={isMenuOpen ? "Close Menu" : "Open System Radial Interface"}
+              aria-expanded={isMenuOpen}
             >
               <div className="trigger-ring-outer"></div>
               <div className="trigger-ring-inner"></div>
@@ -65,10 +93,12 @@ export default function Navbar() {
 
       {/* Floating System Quick-Access HUD Orb (Visible on scroll for instant accessibility on mobile/desktop) */}
       <button
+        type="button"
         className={`floating-system-orb ${scrolled ? 'visible' : ''}`}
-        onClick={() => setIsRadialOpen(true)}
-        aria-label="Open System Menu"
-        title="Open System Menu"
+        onClick={handleToggleMenu}
+        aria-label={isMenuOpen ? "Close System Menu" : "Open System Menu"}
+        title={isMenuOpen ? "Close System Menu" : "Open System Menu"}
+        aria-expanded={isMenuOpen}
       >
         <div className="orb-scanner"></div>
         <div className="orb-ring"></div>
@@ -77,8 +107,8 @@ export default function Navbar() {
 
       {/* Radial System Menu Modal */}
       <RadialMenu 
-        isOpen={isRadialOpen} 
-        onClose={() => setIsRadialOpen(false)} 
+        isOpen={isMenuOpen} 
+        onClose={handleCloseMenu} 
       />
     </>
   );
